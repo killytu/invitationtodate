@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>💌 Приглашение на свидание</title>
+<meta name="description" content="Маленький квиз перед нашим свиданием 💌">
+<meta name="theme-color" content="#F2DFC9">
+
+<meta property="og:title" content="💌 Приглашение на свидание">
+<meta property="og:description" content="Ответь на пару вопросов — и свидание назначено ❤️">
+<meta property="og:type" content="website">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%8C%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="ambient-heart" style="left:4%;  font-size:24px; animation-duration:11s;   animation-delay:0s;   color:var(--rose); --heart-peak:.55;">♥</div>
+<div class="ambient-heart" style="left:14%; font-size:16px; animation-duration:15.5s; animation-delay:2s;   color:var(--gold); --heart-peak:.5;">♥</div>
+<div class="ambient-heart" style="left:25%; font-size:28px; animation-duration:13s;   animation-delay:5s;   color:var(--rose); --heart-peak:.6;">♥</div>
+<div class="ambient-heart" style="left:38%; font-size:18px; animation-duration:17s;   animation-delay:1s;   color:var(--gold); --heart-peak:.48;">♥</div>
+<div class="ambient-heart" style="left:52%; font-size:23px; animation-duration:12s;   animation-delay:7s;   color:var(--rose); --heart-peak:.55;">♥</div>
+<div class="ambient-heart" style="left:64%; font-size:19px; animation-duration:16s;   animation-delay:3.5s; color:var(--gold); --heart-peak:.5;">♥</div>
+<div class="ambient-heart" style="left:76%; font-size:30px; animation-duration:14s;   animation-delay:0.5s; color:var(--rose); --heart-peak:.62;">♥</div>
+<div class="ambient-heart" style="left:87%; font-size:16px; animation-duration:18s;   animation-delay:6s;   color:var(--gold); --heart-peak:.48;">♥</div>
+<div class="ambient-heart" style="left:94%; font-size:22px; animation-duration:11.5s; animation-delay:4s;   color:var(--rose); --heart-peak:.55;">♥</div>
+
+<main class="page">
+<div class="card">
+
+  <div class="step-meta chrome-hidden" id="stepMeta">
+    <button type="button" class="back-btn" onclick="goBack()">← Назад</button>
+    <span class="step-counter" id="stepCounter"></span>
+  </div>
+  <div class="progress-track chrome-hidden" id="progressTrack">
+    <div class="progress-fill" id="progressFill"></div>
+  </div>
+  <div class="seal seal-lg" id="seal" aria-hidden="true">♥</div>
+
+  <div id="step1" class="step step-enter">
+    <h1 class="step-heading" tabindex="-1">Пойдёшь со мной на свидание? ❤️</h1>
+    <div class="step1-actions">
+      <button type="button" id="yesBtn" class="btn-primary btn-pulse" onclick="chooseYes()">Да 💖</button>
+      <button type="button" id="noBtn" class="btn-secondary">Нет 🙈</button>
+    </div>
+  </div>
+
+  <div id="step2" class="step hidden">
+    <h1 class="step-heading" tabindex="-1">Какое настроение?</h1>
+    <div class="options">
+      <button type="button" class="option-btn" onclick="selectOption(this,'mood','Романтичное','step3')">🌆 Романтичное</button>
+      <button type="button" class="option-btn" onclick="selectOption(this,'mood','Весёлое','step3')">🎉 Весёлое</button>
+      <button type="button" class="option-btn" onclick="selectOption(this,'mood','Спонтанное','step3')">🎲 Спонтанное</button>
+      <button type="button" class="option-btn" onclick="selectOption(this,'mood','Спокойное','step3')">😌 Спокойное</button>
+    </div>
+  </div>
+
+  <div id="step3" class="step hidden">
+    <h1 class="step-heading" tabindex="-1">Куда пойдём?</h1>
+    <div class="options">
+      <button type="button" class="option-btn" onclick="selectPlace(this,'Кино')">🎬 Кино</button>
+      <button type="button" class="option-btn" onclick="selectPlace(this,'Ресторан')">🍽 Ресторан</button>
+    </div>
+  </div>
+
+  <div id="step4" class="step hidden">
+    <h1 class="step-heading" tabindex="-1">Кухня</h1>
+    <div class="options">
+      <button type="button" class="option-btn" onclick="selectOption(this,'food','Итальянская','step5')">🍝 Итальянская</button>
+      <button type="button" class="option-btn" onclick="selectOption(this,'food','Французская','step5')">🥐 Французская</button>
+      <button type="button" class="option-btn" onclick="selectOption(this,'food','Японская','step5')">🍣 Японская</button>
+      <button type="button" class="option-btn" onclick="selectOption(this,'food','Вкусно и точка','step5')">🍔 Вкусно и точка</button>
+      <button type="button" class="option-btn" onclick="selectOption(this,'food','Burger King','step5')">👑 Burger King</button>
+    </div>
+  </div>
+
+  <div id="step5" class="step hidden">
+    <h1 class="step-heading" tabindex="-1">Напиток</h1>
+    <div class="options">
+      <button type="button" class="option-btn" onclick="selectOption(this,'drink','Кофе','step6')">☕ Кофе</button>
+      <button type="button" class="option-btn" onclick="selectOption(this,'drink','Чай','step6')">🍵 Чай</button>
+      <button type="button" class="option-btn" onclick="selectOption(this,'drink','Бабл-ти','step6')">🧋 Бабл-ти</button>
+      <button type="button" class="option-btn" onclick="selectOption(this,'drink','Лимонад','step6')">🥤 Лимонад</button>
+    </div>
+  </div>
+
+  <div id="step6" class="step hidden">
+    <h1 class="step-heading" tabindex="-1">Кто красивая?</h1>
+    <div class="options">
+      <button type="button" class="option-btn" onclick="selectOption(this,'beauty','Я 😏','step7')">Я 😏</button>
+      <button type="button" class="option-btn" onclick="selectOption(this,'beauty','Я ❤️','step7')">Я ❤️</button>
+      <button type="button" class="option-btn" onclick="selectOption(this,'beauty','Очевидно я 😎','step7')">Очевидно я 😎</button>
+    </div>
+  </div>
+
+  <div id="step7" class="step hidden">
+    <h1 class="step-heading" tabindex="-1">Сюрпризы?</h1>
+    <div class="options">
+      <button type="button" class="option-btn" onclick="selectOption(this,'surprise','Да','step8')">🎁 Да</button>
+      <button type="button" class="option-btn" onclick="selectOption(this,'surprise','Немного','step8')">🤔 Немного</button>
+      <button type="button" class="option-btn" onclick="selectOption(this,'surprise','Нет','step8')">🙈 Нет</button>
+    </div>
+  </div>
+
+  <div id="step8" class="step hidden">
+    <h1 class="step-heading" tabindex="-1">Ожидание (1-100)</h1>
+    <input id="range" type="range" min="1" max="100" value="50" aria-label="Уровень ожидания">
+    <p class="range-readout"><span id="rangeValue">50</span>/100 — <span id="rangeCaption">Уже жду 😊</span></p>
+    <button type="button" class="btn-primary" onclick="goTo('step9')">Дальше</button>
+  </div>
+
+  <div id="step9" class="step hidden">
+    <h1 class="step-heading" tabindex="-1">Дата и время</h1>
+    <p class="field-hint">Выбери удобные дату и время</p>
+    <div class="options" id="dateGrid"></div>
+    <div class="options" id="timeGrid">
+      <button type="button" class="option-btn">12:00</button>
+      <button type="button" class="option-btn">14:00</button>
+      <button type="button" class="option-btn">16:00</button>
+      <button type="button" class="option-btn">18:00</button>
+      <button type="button" class="option-btn">20:00</button>
+    </div>
+    <button type="button" class="btn-primary" id="finishBtn" onclick="finish()" disabled>Готово ❤️</button>
+  </div>
+
+  <div id="final" class="step hidden">
+    <h1 class="step-heading" tabindex="-1">Готово! ❤️</h1>
+    <p class="final-sub">Спасибо за ответ — скоро увидимся 😊</p>
+    <div class="recap" id="recap"></div>
+    <div class="send-status" id="sendStatus" aria-live="polite"></div>
+  </div>
+
+</div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js" defer></script>
+<script src="script.js" defer></script>
+</body>
+</html>
